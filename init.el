@@ -17,6 +17,7 @@
 ;; taken care of by ‘package-initialize’.
 
 (package-initialize)
+;; TODO: install use-package automatically if necessary
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; different configuration for different platform
@@ -26,7 +27,9 @@
 		     frame-width 110
 		     width-height 120))
       ((string-equal system-type "gnu/linux")
-       (message "I am on Linux"))
+       (setq-default font-name "Source Code Pro-15"
+		     frame-width 110
+		     width-height 30))
       (t
        (message "I am on Windows")))
 
@@ -56,9 +59,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
 
 (use-package ace-jump-mode
   :bind
