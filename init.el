@@ -2,6 +2,7 @@
 
 ;; d-pe: describe-personal-keybindings
 ;; ev-b: eval-buffer
+;; l-pac: list-packages
 
 ;; package-archives
 (setq-default package-archives
@@ -68,6 +69,18 @@
   :config
   (setq-default ace-jump-word-mode-use-query-char nil))
 
-(use-package magit)
-(use-package helm)
-(use-package lispy)
+(use-package magit
+  :bind
+  (("C-x g" . magit-status)))
+
+(use-package helm
+  :bind
+  (("M-x" . helm-M-x)
+   ("M-<f5>" . helm-find-files)
+   ([f10] . helm-buffers-list)
+   ([S-f10] . helm-recentf)))
+
+(use-package lispy
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'lispy-mode)
+  (add-hook 'lisp-mode-hook 'lispy-mode))
