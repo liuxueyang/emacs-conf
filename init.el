@@ -56,7 +56,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages (quote (lispy helm magit ace-jump-mode use-package)))
- '(use-package-always-ensure t)
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -66,6 +65,7 @@
  )
 
 (use-package ace-jump-mode
+  :ensure t
   :bind
   (("C-. c" . ace-jump-mode)
    ("C-. l" . ace-jump-line-mode)
@@ -74,10 +74,12 @@
   (setq-default ace-jump-word-mode-use-query-char nil))
 
 (use-package magit
+  :ensure t
   :bind
   (("C-x g" . magit-status)))
 
 (use-package helm
+  :ensure t
   :bind
   (("M-x" . helm-M-x)
    ("M-<f5>" . helm-find-files)
@@ -85,5 +87,6 @@
    ([S-f10] . helm-recentf)))
 
 (use-package lispy
+  :ensure t
   :hook
   ((emacs-lisp-mode lisp-mode) . lispy-mode))
