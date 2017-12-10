@@ -86,4 +86,4 @@
 
 (use-package lispy
   :hook
-  (emacs-lisp-mode lisp-mode))
+  ((emacs-lisp-mode lisp-mode) . lispy-mode))
