@@ -85,6 +85,5 @@
    ([S-f10] . helm-recentf)))
 
 (use-package lispy
-  :config
-  (add-hook 'emacs-lisp-mode-hook 'lispy-mode)
-  (add-hook 'lisp-mode-hook 'lispy-mode))
+  :hook
+  (emacs-lisp-mode lisp-mode))
