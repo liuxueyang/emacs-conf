@@ -141,3 +141,8 @@
   (("M-p" . ace-window))
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
+(use-package rust-mode
+  :mode "\\.rs\\'")
+
+(use-package rust-playground)
