@@ -44,6 +44,9 @@
 	      fill-column 80)
 
 (load-theme 'tsdh-dark t)
+;; (menu-bar-mode -1)
+(menu-bar-mode 1)
+(tool-bar-mode -1)
 
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
