@@ -60,7 +60,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+    (elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -143,6 +143,11 @@
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (use-package rust-mode
+  :ensure t
   :mode "\\.rs\\'")
 
-(use-package rust-playground)
+(use-package rust-playground
+  :ensure t)
+
+(use-package elpy
+  :ensure t)
