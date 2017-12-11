@@ -42,11 +42,15 @@
 (setq-default initial-frame-alist
 	      `((top . 1) (left . 1) (width . ,frame-width) (height . ,width-height))
 	      fill-column 80)
+
 (setenv "WORKON_HOME"
 	(shell-command-to-string ". ~/.zshrc; echo -n $WORKON_HOME"))
 (setenv
  "VIRTUALENVWRAPPER_PYTHON"
  (shell-command-to-string ". ~/.zshrc; echo -n $VIRTUALENVWRAPPER_PYTHON"))
+(setenv
+ "PYTHON"
+ (shell-command-to-string ". ~/.zshrc; echo -n $PYTHON"))
 
 ;; (load-theme 'tsdh-dark t)
 (use-package solarized-theme
@@ -55,6 +59,7 @@
 ;; (menu-bar-mode -1)
 (menu-bar-mode 1)
 (tool-bar-mode -1)
+(column-number-mode 1)
 
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
@@ -65,7 +70,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+    (yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -159,4 +164,13 @@
   :config
   (elpy-enable)
   :custom
-  (elpy-rpc-python-command "python3"))
+  ((elpy-rpc-python-command (getenv "PYTHON"))
+   (elpy-rpc-backend "rope")))
+
+(use-package py-yapf
+  :ensure t
+  :hook
+  (python-mode . py-yapf-enable-on-save))
+
+(use-package yasnippet-snippets
+  :ensure t)
