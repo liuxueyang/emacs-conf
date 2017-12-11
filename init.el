@@ -42,6 +42,8 @@
 (setq-default initial-frame-alist
 	      `((top . 1) (left . 1) (width . ,frame-width) (height . ,width-height))
 	      fill-column 80)
+(setenv "WORKON_HOME"
+	(shell-command-to-string ". ~/.zshrc; echo -n $WORKON_HOME"))
 
 ;; (load-theme 'tsdh-dark t)
 (use-package solarized-theme
@@ -69,7 +71,7 @@
  ;; If there is more than one, they won't work right.
  '(rainbow-blocks-depth-1-face ((t (:foreground "red"))))
  '(rainbow-blocks-depth-2-face ((t (:foreground "orange"))))
- '(rainbow-blocks-depth-3-face ((t (:foreground "blue"))))
+ '(rainbow-blocks-depth-3-face ((t (:foreground "SkyBlue1"))))
  '(rainbow-blocks-depth-4-face ((t (:foreground "green"))))
  '(rainbow-blocks-depth-5-face ((t (:foreground "cyan"))))
  '(rainbow-blocks-depth-6-face ((t (:foreground "deep sky blue"))))
@@ -150,4 +152,8 @@
   :ensure t)
 
 (use-package elpy
-  :ensure t)
+  :ensure t
+  :config
+  (elpy-enable)
+  :custom
+  (elpy-rpc-python-command "python3"))
