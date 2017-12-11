@@ -44,6 +44,9 @@
 	      fill-column 80)
 (setenv "WORKON_HOME"
 	(shell-command-to-string ". ~/.zshrc; echo -n $WORKON_HOME"))
+(setenv
+ "VIRTUALENVWRAPPER_PYTHON"
+ (shell-command-to-string ". ~/.zshrc; echo -n $VIRTUALENVWRAPPER_PYTHON"))
 
 ;; (load-theme 'tsdh-dark t)
 (use-package solarized-theme
