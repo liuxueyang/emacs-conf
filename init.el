@@ -43,14 +43,20 @@
 	      `((top . 1) (left . 1) (width . ,frame-width) (height . ,width-height))
 	      fill-column 80)
 
-(setenv "WORKON_HOME"
-	(shell-command-to-string ". ~/.zshrc; echo -n $WORKON_HOME"))
-(setenv
- "VIRTUALENVWRAPPER_PYTHON"
- (shell-command-to-string ". ~/.zshrc; echo -n $VIRTUALENVWRAPPER_PYTHON"))
-(setenv
- "PYTHON"
- (shell-command-to-string ". ~/.zshrc; echo -n $PYTHON"))
+(let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
+  (setenv "PATH" path)
+  (setq exec-path
+	(append
+	 (split-string-and-unquote path ":")
+	 exec-path))
+  (setenv "WORKON_HOME"
+	  (shell-command-to-string ". ~/.zshrc; echo -n $WORKON_HOME"))
+  (setenv
+   "VIRTUALENVWRAPPER_PYTHON"
+   (shell-command-to-string ". ~/.zshrc; echo -n $VIRTUALENVWRAPPER_PYTHON"))
+  (setenv
+   "PYTHON"
+   (shell-command-to-string ". ~/.zshrc; echo -n $PYTHON")))
 
 ;; (load-theme 'tsdh-dark t)
 (use-package solarized-theme
