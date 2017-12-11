@@ -86,7 +86,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+    (swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -136,7 +136,10 @@
    ([f10] . helm-buffers-list)
    ([S-f10] . helm-recentf)
    ("C-x r b" . helm-filtered-bookmarks)
-   ("C-x C-f" . helm-find-files))
+   ("C-x C-f" . helm-find-files)
+   ("M-s o" . helm-occur)
+   ("C-x C-b" . helm-buffers-list)
+   ("M-/" . helm-dabbrev))
   :config
   (helm-mode 1))
 
@@ -226,3 +229,11 @@
    ("C->" . mc/mark-next-like-this)
    ("C-<" . mc/mark-previous-like-this)
    ("C-c C-<" . mc/mark-all-like-this)))
+
+(use-package helm-ag
+  :ensure t)
+
+(use-package swiper-helm
+  :ensure t
+  :bind
+  (("C-s" . swiper-helm)))
