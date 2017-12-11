@@ -71,6 +71,12 @@
 (scroll-bar-mode -1)
 (global-linum-mode 1)
 
+(display-time-mode 1)
+(setq-default display-time-day-and-date t)
+
+(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
 (custom-set-variables
@@ -128,7 +134,11 @@
   (("M-x" . helm-M-x)
    ("M-<f5>" . helm-find-files)
    ([f10] . helm-buffers-list)
-   ([S-f10] . helm-recentf)))
+   ([S-f10] . helm-recentf)
+   ("C-x r b" . helm-filtered-bookmarks)
+   ("C-x C-f" . helm-find-files))
+  :config
+  (helm-mode 1))
 
 (use-package lispy
   :ensure t
@@ -194,3 +204,25 @@
   :ensure t
   :hook
   (python-mode . sphinx-doc-mode))
+
+(use-package auctex
+  :ensure t
+  :no-require t
+  :custom
+  ((TeX-auto-save t)
+   (TeX-parse-self t)
+   (TeX-master nil)
+   (reftex-plug-into-AUCTeX t))
+  :hook
+  ((LaTeX-mode . auto-fill-mode)
+   (LaTeX-mode . flyspell-mode)
+   (LaTeX-mode . LaTeX-math-mode)
+   (LaTeX-mode . turn-on-reftex)))
+
+(use-package multiple-cursors
+  :ensure t
+  :bind
+  (("C-S-c C-S-c" . mc/edit-lines)
+   ("C->" . mc/mark-next-like-this)
+   ("C-<" . mc/mark-previous-like-this)
+   ("C-c C-<" . mc/mark-all-like-this)))
