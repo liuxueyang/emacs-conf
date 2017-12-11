@@ -49,14 +49,16 @@
 	(append
 	 (split-string-and-unquote path ":")
 	 exec-path))
+  ;; used by pyvenv plugin
   (setenv "WORKON_HOME"
 	  (shell-command-to-string ". ~/.zshrc; echo -n $WORKON_HOME"))
   (setenv
    "VIRTUALENVWRAPPER_PYTHON"
    (shell-command-to-string ". ~/.zshrc; echo -n $VIRTUALENVWRAPPER_PYTHON"))
+  ;; used by elpy
   (setenv
-   "PYTHON"
-   (shell-command-to-string ". ~/.zshrc; echo -n $PYTHON")))
+   "PATH_TO_PYTHON"
+   (shell-command-to-string ". ~/.zshrc; echo -n $PATH_TO_PYTHON")))
 
 ;; (load-theme 'tsdh-dark t)
 (use-package solarized-theme
@@ -67,6 +69,7 @@
 (tool-bar-mode -1)
 (column-number-mode 1)
 (scroll-bar-mode -1)
+(global-linum-mode 1)
 
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
@@ -171,7 +174,7 @@
   :config
   (elpy-enable)
   :custom
-  ((elpy-rpc-python-command (getenv "PYTHON"))
+  ((elpy-rpc-python-command (getenv "PATH_TO_PYTHON"))
    (elpy-rpc-backend "rope")))
 
 (use-package py-yapf
