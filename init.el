@@ -41,7 +41,8 @@
 
 (setq-default initial-frame-alist
 	      `((top . 1) (left . 1) (width . ,frame-width) (height . ,width-height))
-	      fill-column 80)
+	      fill-column 80
+	      scroll-conservatively 101)
 
 (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
   (setenv "PATH" path)
