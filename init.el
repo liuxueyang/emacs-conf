@@ -87,7 +87,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+    (yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -238,3 +238,9 @@
   :ensure t
   :bind
   (("C-s" . swiper-helm)))
+
+(use-package yaml-mode
+  :ensure t
+  :mode "\\.yaml\\'"
+  :bind
+  ("C-m" . newline-and-indent))
