@@ -130,20 +130,44 @@
   :bind
   (("C-x g" . magit-status)))
 
-(use-package helm
+;; --------------------------------------------------
+;; Maybe there is some bug in helm for Emacs 24.5? So
+;; I switch to swiper
+
+;; (use-package helm
+;;   :ensure t
+;;   :bind
+;;   (("M-x" . helm-M-x)
+;;    ("M-<f5>" . helm-find-files)
+;;    ([f10] . helm-buffers-list)
+;;    ([S-f10] . helm-recentf)
+;;    ("C-x r b" . helm-filtered-bookmarks)
+;;    ;; ("C-x C-f" . helm-find-files)
+;;    ("M-s o" . helm-occur)
+;;    ("C-x C-b" . helm-buffers-list)
+;;    ("M-/" . helm-dabbrev))
+;;   :config
+;;   (helm-mode 1))
+
+;; --------------------------------------------------
+
+(use-package ivy
+  :ensure t
+  :config
+  (setq ivy-use-selectable-prompt t)
+  (ivy-mode 1))
+
+(use-package counsel
   :ensure t
   :bind
-  (("M-x" . helm-M-x)
-   ("M-<f5>" . helm-find-files)
-   ([f10] . helm-buffers-list)
-   ([S-f10] . helm-recentf)
-   ("C-x r b" . helm-filtered-bookmarks)
-   ;; ("C-x C-f" . helm-find-files)
-   ("M-s o" . helm-occur)
-   ("C-x C-b" . helm-buffers-list)
-   ("M-/" . helm-dabbrev))
-  :config
-  (helm-mode 1))
+  (("M-x" . counsel-M-x)
+   ("C-x C-f" . counsel-find-file)
+   ("C-c k" . counsel-ag)))
+
+(use-package swiper
+  :ensure t
+  :bind
+  (("C-s" . swiper)))
 
 (use-package lispy
   :ensure t
