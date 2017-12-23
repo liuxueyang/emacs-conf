@@ -138,7 +138,7 @@
    ([f10] . helm-buffers-list)
    ([S-f10] . helm-recentf)
    ("C-x r b" . helm-filtered-bookmarks)
-   ("C-x C-f" . helm-find-files)
+   ;; ("C-x C-f" . helm-find-files)
    ("M-s o" . helm-occur)
    ("C-x C-b" . helm-buffers-list)
    ("M-/" . helm-dabbrev))
@@ -177,13 +177,18 @@
   :custom
   (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
+;; --------------------------------------------------
+;; rust
 (use-package rust-mode
   :ensure t
   :mode "\\.rs\\'")
 
 (use-package rust-playground
   :ensure t)
+;; --------------------------------------------------
 
+;; --------------------------------------------------
+;; python
 (use-package elpy
   :ensure t
   :config
@@ -197,6 +202,12 @@
   :hook
   (python-mode . py-yapf-enable-on-save))
 
+(use-package sphinx-doc
+  :ensure t
+  :hook
+  (python-mode . sphinx-doc-mode))
+;; --------------------------------------------------
+
 (use-package yasnippet-snippets
   :ensure t)
 
@@ -204,11 +215,6 @@
   :ensure t
   :config
   (yas-global-mode 1))
-
-(use-package sphinx-doc
-  :ensure t
-  :hook
-  (python-mode . sphinx-doc-mode))
 
 (use-package auctex
   :ensure t
@@ -245,3 +251,30 @@
   :mode "\\.yaml\\'"
   :bind
   ("C-m" . newline-and-indent))
+
+;; --------------------------------------------------
+;; OCaml
+(use-package merlin
+  :ensure t
+  :config
+  (setq merlin-use-auto-complete-mode t)
+  (setq merlin-error-after-save nil))
+
+(use-package utop
+  :ensure t
+  :config
+  (setq utop-command "opam config exec -- utop -emacs")
+  (autoload 'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
+  (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+  :hook
+  ((tuareg-mode . utop-minor-mode)))
+
+(use-package tuareg
+  :ensure t
+  :hook
+  ((tuareg-mode . tuareg-imenu-set-imenu)
+   (tuareg-mode . utop-setup-ocaml-buffer)
+   (tuareg-mode . merlin-mode))
+  :mode
+  ("\\.ml[ily]?$" "\\.topml$"))
+;; --------------------------------------------------
