@@ -86,9 +86,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(elpy-rpc-python-command "/usr/local/bin/python3" nil nil "Customized with use-package elpy")
  '(package-selected-packages
    (quote
-    (yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+    (tuareg utop merlin counsel yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -278,27 +279,31 @@
 
 ;; --------------------------------------------------
 ;; OCaml
-(use-package merlin
-  :ensure t
-  :config
-  (setq merlin-use-auto-complete-mode t)
-  (setq merlin-error-after-save nil))
+;; (use-package merlin
+;;   :ensure t
+;;   :config
+;;   (setq merlin-use-auto-complete-mode t)
+;;   (setq merlin-error-after-save nil))
 
-(use-package utop
-  :ensure t
-  :config
-  (setq utop-command "opam config exec -- utop -emacs")
-  (autoload 'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
-  (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
-  :hook
-  ((tuareg-mode . utop-minor-mode)))
+;; (use-package utop
+;;   :ensure t
+;;   :config
+;;   (setq utop-command "opam config exec -- utop -emacs")
+;;   (autoload 'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
+;;   (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
+;;   :hook
+;;   ((tuareg-mode . utop-minor-mode)))
 
-(use-package tuareg
-  :ensure t
-  :hook
-  ((tuareg-mode . tuareg-imenu-set-imenu)
-   (tuareg-mode . utop-setup-ocaml-buffer)
-   (tuareg-mode . merlin-mode))
-  :mode
-  ("\\.ml[ily]?$" "\\.topml$"))
+;; (use-package tuareg
+;;   :ensure t
+;;   :hook
+;;   ((tuareg-mode . tuareg-imenu-set-imenu)
+;;    (tuareg-mode . utop-setup-ocaml-buffer)
+;;    (tuareg-mode . merlin-mode))
+;;   :mode
+;;   ("\\.ml[ily]?$" "\\.topml$"))
 ;; --------------------------------------------------
+
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
