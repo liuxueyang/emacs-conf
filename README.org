@@ -1,3 +1,0 @@
-Enjoy Emacs!
-
-[[file:emacs.png][Screenshot]]
