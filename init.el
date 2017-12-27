@@ -239,6 +239,8 @@
 (use-package yasnippet
   :ensure t
   :config
+  (setq yas-snippet-dirs
+	'("~/.emacs.d/snippets"))
   (yas-global-mode 1))
 
 (use-package auctex
@@ -279,31 +281,18 @@
 
 ;; --------------------------------------------------
 ;; OCaml
-;; (use-package merlin
-;;   :ensure t
-;;   :config
-;;   (setq merlin-use-auto-complete-mode t)
-;;   (setq merlin-error-after-save nil))
-
-;; (use-package utop
-;;   :ensure t
-;;   :config
-;;   (setq utop-command "opam config exec -- utop -emacs")
-;;   (autoload 'utop-setup-ocaml-buffer "utop" "Toplevel for OCaml" t)
-;;   (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
-;;   :hook
-;;   ((tuareg-mode . utop-minor-mode)))
-
-;; (use-package tuareg
-;;   :ensure t
-;;   :hook
-;;   ((tuareg-mode . tuareg-imenu-set-imenu)
-;;    (tuareg-mode . utop-setup-ocaml-buffer)
-;;    (tuareg-mode . merlin-mode))
-;;   :mode
-;;   ("\\.ml[ily]?$" "\\.topml$"))
-;; --------------------------------------------------
-
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+;; --------------------------------------------------
+
+;; --------------------------------------------------
+;; Markdown
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+;; --------------------------------------------------
