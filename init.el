@@ -86,10 +86,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-auto-save t t)
+ '(TeX-master nil t)
+ '(TeX-parse-self t t)
+ '(aw-keys (quote (97 115 100 102 103 104 106 107 108)))
+ '(elpy-rpc-backend "rope" t)
  '(elpy-rpc-python-command "/usr/local/bin/python3" nil nil "Customized with use-package elpy")
  '(package-selected-packages
    (quote
-    (tuareg utop merlin counsel yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+    (markdown-mode tuareg utop merlin counsel yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+ '(reftex-plug-into-AUCTeX t t)
  '(vc-follow-symlinks t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -288,8 +294,8 @@
 
 ;; --------------------------------------------------
 ;; Markdown
+;; "https://jblevins.org/projects/markdown-mode/"
 (use-package markdown-mode
-  "https://jblevins.org/projects/markdown-mode/"
   :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
