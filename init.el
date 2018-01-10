@@ -303,3 +303,8 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 ;; --------------------------------------------------
+
+;; --------------------------------------------------
+;; C
+(add-hook 'c-mode-hook (lambda () (c-set-style "linux")))
+;; --------------------------------------------------
