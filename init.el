@@ -288,9 +288,11 @@
 ;; --------------------------------------------------
 ;; OCaml
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(let ((opam-user-setup "~/.emacs.d/opam-user-setup.el"))
-  (when (file-exists-p opam-user-setup)
-    (require 'opam-user-setup)))
+
+(let ((opam-user-setup-path "~/.emacs.d/opam-user-setup.el"))
+  (when (file-exists-p opam-user-setup-path)
+    (require 'opam-user-setup opam-user-setup-path)))
+
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
 ;; --------------------------------------------------
 
