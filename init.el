@@ -224,7 +224,10 @@
   :config
   (elpy-enable)
   :custom
-  (;; (elpy-rpc-python-command (getenv ""))
+  ((elpy-rpc-python-command
+    "/Users/lxy/.pyenv/shims/python"
+    ;; (getenv "")
+    )
    (elpy-rpc-backend "rope")))
 
 (use-package py-yapf
