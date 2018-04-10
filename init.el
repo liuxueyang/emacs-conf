@@ -65,7 +65,7 @@
 ;; (load-theme 'tsdh-dark t)
 (use-package solarized-theme
   :ensure t)
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 ;; (menu-bar-mode -1)
 (menu-bar-mode 1)
 (tool-bar-mode -1)
