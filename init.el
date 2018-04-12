@@ -62,12 +62,17 @@
 ;;      "PATH_TO_PYTHON"
 ;;      (shell-command-to-string ". ~/.zshrc; echo -n $PATH_TO_PYTHON"))))
 
-;; (load-theme 'tsdh-dark t)
 (use-package solarized-theme
   :ensure t)
-(load-theme 'solarized-dark t)
-;; (menu-bar-mode -1)
-(menu-bar-mode 1)
+(use-package dracula-theme
+  :ensure t)
+
+;; (load-theme 'tsdh-dark t)
+;; (load-theme 'solarized-dark t)
+(load-theme 'dracula t)
+
+(menu-bar-mode -1)
+;; (menu-bar-mode 1)
 (tool-bar-mode -1)
 (column-number-mode 1)
 (scroll-bar-mode -1)
