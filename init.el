@@ -76,9 +76,12 @@
  '(TeX-parse-self t t)
  '(aw-keys (quote (97 115 100 102 103 104 106 107 108)))
  '(elpy-rpc-backend "rope" t)
+ '(exec-path
+   (quote
+    ("/usr/bin" "/bin" "/usr/sbin" "/sbin" "/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9" "/Applications/Emacs.app/Contents/MacOS/libexec-x86_64-10_9" "/Applications/Emacs.app/Contents/MacOS/libexec" "/Applications/Emacs.app/Contents/MacOS/bin" "/usr/local/bin")))
  '(package-selected-packages
    (quote
-    (markdown-mode tuareg utop merlin counsel yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+    (faff-theme avk-emacs-themes avk-daylight-theme avk-daylight markdown-mode tuareg utop merlin counsel yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
  '(reftex-plug-into-AUCTeX t t)
  '(vc-follow-symlinks t))
 (custom-set-faces
