@@ -42,15 +42,12 @@
 	      `((top . 1) (left . 1) (width . ,frame-width) (height . ,width-height))
 	      fill-column 80)
 
-(use-package dracula-theme
+(use-package faff-theme
   :ensure t)
 
-;; (load-theme 'tsdh-dark t)
-;; (load-theme 'solarized-dark t)
-(load-theme 'dracula t)
+(load-theme 'faff t)
 
 ;; (menu-bar-mode -1)
-;; (menu-bar-mode 1)
 (tool-bar-mode -1)
 (column-number-mode 1)
 (scroll-bar-mode -1)
@@ -74,11 +71,11 @@
  '(TeX-auto-save t t)
  '(TeX-master nil t)
  '(TeX-parse-self t t)
- '(aw-keys (quote (97 115 100 102 103 104 106 107 108)))
+ '(aw-keys (quote (97 115 100 102 103 104 106 107 108)) t)
  '(elpy-rpc-backend "rope" t)
  '(package-selected-packages
    (quote
-    (markdown-mode tuareg utop merlin counsel yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
+    (faff-theme avk-emacs-themes avk-daylight-theme avk-daylight markdown-mode tuareg utop merlin counsel yaml-mode swiper-helm helm-ag sphinx-doc yanippet yasnippet-snippets py-yapf elpy rust-playground rust-mode diff-hl hl-sexp solarized-theme rainbow-blocks rainbow-delimiters lispy helm magit ace-jump-mode use-package)))
  '(reftex-plug-into-AUCTeX t t)
  '(vc-follow-symlinks t))
 (custom-set-faces
