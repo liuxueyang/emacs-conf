@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: PRINTMACRO
+# key: PRINTMACRO
+# --
+#define PR(x, f) printf( #x " = %" #f "\t", x )
+#define NL putchar( '\n' )
+#define PRINT1(x) PR(x), NL
+#define PRINT2(x1, x2) PR(x1), PRINT1(x2)
+#define PRINT3(x1, x2, x3) PR(x1), PRINT2(x2, x3)
+#define PRINT4(x1, x2, x3, x4) PR(x1), PRINT3(x2, x3, x4)
