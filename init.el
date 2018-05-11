@@ -19,21 +19,9 @@
 
 (package-initialize)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; different configuration for different platform
-
-(cond ((string-equal system-type "darwin")
-       (setq-default font-name "Monaco-20"
+(setq-default font-name "Monaco-20"
 		     frame-width 110
-		     width-height 120))
-      ((string-equal system-type "gnu/linux")
-       (setq-default font-name "Source Code Pro-15"
-		     frame-width 110
-		     width-height 30))
-      (t
-       (message "I am on Windows")))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		     width-height 120)
 
 (add-to-list 'default-frame-alist
 	     `(font . ,font-name))
